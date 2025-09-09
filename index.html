@@ -28,7 +28,13 @@
     <style>
       .inter-font {
         font-family: "Inter", sans-serif;
+      } 
+      .active>button{
+        background-color: #15803D;
+        color: white;
+        padding: 8px 10px 8px 10px;
       }
+      
     </style>
   </head>
   <body class="font-inter">
@@ -72,13 +78,13 @@
       <section class="bg-[#F0FDF4] flex flex-col items-center justify-center px-[135px] pt-[100px]">
         <h2 class="font-semibold text-[32px] mb-[40px]">Choose Your Trees</h2>
         <div  class="flex justify-between  gap-[30px]">
-            <div id="categories">
-                <h2 class="text-[20px] font-semibold">Categories</h2>
-                <div id="categories">
-                    <button class="bg-[#15803D] text-white text-[20px] font-light py-[8px] px-[10px] rounded-[4px] w-[100%] mb-[10px]">All Trees</button>
+            <div id="categories" class="">
+                <h2 class="text-[20px] font-semibold text-center mb-[16px]">Categories</h2>
+                <div id="alltrees" class="active" >
+                    <button class="  text-black text-[20px] font-light py-[8px] px-[10px] rounded-[4px] w-[100%] mb-[10px]">All Trees</button>
                 </div>
             </div>
-            <div id="all-plants-container" class="grid grid-cols-3 gap-[30px]">
+            <div id="all-plants-container" class="grid grid-cols-3 gap-[30px] ">
                 <!-- <div class="bg-white p-[16px] rounded-[8px]">
                     <img height="186px" width="100%" src="" alt="">
                     <h2 class="text-[14px] font-semibold mt-[12px]">Mango Tree</h2>

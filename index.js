@@ -10,10 +10,11 @@ const displayCategories=(data)=>{
         console.log(element);
         const newElement=document.createElement('div');
         newElement.innerHTML=`
-        <button class="bg-[#15803D] text-white text-[20px] font-light py-[8px] px-[10px] rounded-[4px] w-[100%] mb-[10px]">${element.category_name}</button>
+        <button onclick="loadCategoriesDetails(${element.id})" class="hover:bg-[#15803D] hover:text-white text-black text-[20px] hover:cursor-pointer font-light py-[8px] px-[10px] rounded-[4px] w-[100%] mb-[10px]">${element.category_name}</button>
         `;
         newElement.id=`category-${element.id}`;
         categoriesContainer.appendChild(newElement);
+
     });
    
 }
@@ -49,7 +50,7 @@ const displayAllPlants=(data)=>{
         
         const newEl=document.createElement('div');
         newEl.innerHTML=`
-            <div class="bg-white p-[16px] rounded-[8px] shadow-sm">
+            <div class="bg-white p-[16px] w-[340px] rounded-[8px] shadow-sm">
                     <img class="w-[330px] h-[330px]" src="${element.image}" alt="">
                     <h2 class="text-[14px] font-semibold mt-[12px]">${element.category}</h2>
                     <p class="text-[12px] mt-[8px]">${element.description}</p>
@@ -63,3 +64,47 @@ const displayAllPlants=(data)=>{
     });
 }
 allPlants();
+
+
+const loadCategoriesDetails=(id)=>{
+    const dd= document.getElementById('alltrees');
+    dd.classList.remove('active');
+    const url=`https://openapi.programming-hero.com/api/category/${id}`;
+    fetch(url)
+    .then(res=>res.json())
+    .then(json=>{
+        const clickBtn=document.getElementById(`category-${id}`);
+        const activeButton=document.querySelectorAll('.active');
+        activeButton.forEach(res=>{
+            res.classList.remove('active');
+        });
+        console.log(clickBtn)
+        // clickBtn.classList.add('bg-[#15803D]');
+        // clickBtn.classList.remove('text-black');
+        clickBtn.classList.add('active');
+        displayCategoriesDetails(json.plants)
+    });
+    
+}
+const displayCategoriesDetails=(data)=>{
+    const allPlantsContainer=document.getElementById('all-plants-container');
+    allPlantsContainer.innerHTML='';
+    data.forEach(element=>{
+        
+        const newEl=document.createElement('div');
+        newEl.innerHTML=`
+            <div class="bg-white p-[16px] w-[340px] rounded-[8px] shadow-sm">
+                    <img class="w-[330px] h-[330px]" src="${element.image}" alt="">
+                    <h2 class="text-[14px] font-semibold mt-[12px]">${element.category}</h2>
+                    <p class="text-[12px] mt-[8px]">${element.description}</p>
+                    <div class="flex justify-between items-center mt-[8px]">
+                        <button class="text-[12px] font-medium text-[#15803D] bg-[#DCFCE7] rounded-xl py-[4px] px-[12px]">${element.name}</button><button class="text-[14px] font-semibold">৳ ${element.price}</button>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary mt-[12px] bg-[#15803D] text-white rounded-4xl w-[100%] ">Add to Cart</button>
+                </div>
+        `;
+        allPlantsContainer.appendChild(newEl);
+    });
+}
+
+
