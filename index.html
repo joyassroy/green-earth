@@ -28,13 +28,12 @@
     <style>
       .inter-font {
         font-family: "Inter", sans-serif;
-      } 
-      .active>button{
-        background-color: #15803D;
+      }
+      .active > button {
+        background-color: #15803d;
         color: white;
         padding: 8px 10px 8px 10px;
       }
-      
     </style>
   </head>
   <body class="font-inter">
@@ -75,17 +74,46 @@
         </div>
         <img src="./assets/hero-leaf2.png" alt="" />
       </section>
-      <section class="bg-[#F0FDF4] flex flex-col items-center justify-center px-[135px] pt-[100px]">
+      <section
+        class="bg-[#F0FDF4] flex flex-col items-center justify-center px-[135px] pt-[100px]"
+      >
         <h2 class="font-semibold text-[32px] mb-[40px]">Choose Your Trees</h2>
-        <div  class="flex justify-between  gap-[30px]">
-            <div id="categories" class="">
-                <h2 class="text-[20px] font-semibold text-center mb-[16px]">Categories</h2>
-                <div id="alltrees" class="active" >
-                    <button class="  text-black text-[20px] font-light py-[8px] px-[10px] rounded-[4px] w-[100%] mb-[10px]">All Trees</button>
-                </div>
+        <div class="flex justify-between gap-[30px]">
+          <div id="categories" class="">
+            <h2 class="text-[20px] font-semibold text-center mb-[16px]">
+              Categories
+            </h2>
+            <div id="alltrees" class="active">
+              <button
+                class="text-black text-[20px] font-light py-[8px] px-[10px] rounded-[4px] w-[100%] mb-[10px]"
+              >
+                All Trees
+              </button>
             </div>
-            <div id="all-plants-container" class="grid grid-cols-3 gap-[30px] ">
-                <!-- <div class="bg-white p-[16px] rounded-[8px]">
+          </div>
+          
+            <dialog id="my_modal_1" class="modal">
+              <div class="modal-box">
+                <div id="modal-box-container">
+                <h3 class="text-[25px] font-bold">Neem Tree</h3>
+                <img src="" alt="">
+                <p><span class="font-bold text-[16px]">Category:</span> Shade Tree</p>
+                <p><span class="font-bold text-[16px]">Price:</span> ৳600</p>
+                <p><span class="font-bold text-[16px]">Description:</span> absdfdfdf</p>
+                </div>
+
+                
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+          
+          <div id="all-plants-container" class="grid grid-cols-3 gap-[30px]">
+            <!-- <div class="bg-white p-[16px] rounded-[8px]">
                     <img height="186px" width="100%" src="" alt="">
                     <h2 class="text-[14px] font-semibold mt-[12px]">Mango Tree</h2>
                     <p class="text-[12px] mt-[8px]">A fast-growing tropical tree that produces delicious, <br> juicy mangoes during summer. Its dense green</p>
@@ -94,8 +122,8 @@
                     </div>
                     <button type="button" class="btn btn-outline-primary mt-[12px] bg-[#15803D] text-white rounded-4xl w-[100%]">Add to Cart</button>
                 </div> -->
-            </div>
-            <div></div>
+          </div>
+          <div></div>
         </div>
       </section>
       <section
@@ -159,9 +187,15 @@
           </div>
         </div>
       </section>
-      <section class="bg-[#166534] flex flex-col items-center pb-[100px] pt-[100px]">
-        <h2 class="text-[32px] font-semibold text-white mb-[40px]">Plant a Tree Today</h2>
-        <div class="bg-[#15803D] p-[40px] flex flex-col w-[600px] gap-[12px] rounded-[14px]">
+      <section
+        class="bg-[#166534] flex flex-col items-center pb-[100px] pt-[100px]"
+      >
+        <h2 class="text-[32px] font-semibold text-white mb-[40px]">
+          Plant a Tree Today
+        </h2>
+        <div
+          class="bg-[#15803D] p-[40px] flex flex-col w-[600px] gap-[12px] rounded-[14px]"
+        >
           <input
             type="text"
             width="570px"
@@ -177,9 +211,14 @@
             placeholder="Your Email Address"
             id=""
           />
-          <div class="dropdown dropdown-end  text-[16px] ">
-            <div tabindex="0" role="button" class="btn m-1 p-[12px] flex flex-row justify-between items-center">
-              <span>Number of Trees</span>  <i class="fa-solid fa-circle-chevron-down"></i>
+          <div class="dropdown dropdown-end text-[16px]">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn m-1 p-[12px] flex flex-row justify-between items-center"
+            >
+              <span>Number of Trees</span>
+              <i class="fa-solid fa-circle-chevron-down"></i>
             </div>
             <ul
               tabindex="0"
@@ -190,14 +229,21 @@
               <li><a>10 Tree - $50</a></li>
             </ul>
           </div>
-          <button type="button" class="btn btn-outline-primary bg-[#FACC15] rounded-4xl">Donate Now</button>
+          <button
+            type="button"
+            class="btn btn-outline-primary bg-[#FACC15] rounded-4xl"
+          >
+            Donate Now
+          </button>
         </div>
       </section>
     </main>
     <footer>
-        <section class="bg-[#14532D] py-[24px] text-white text-center text-[16px] font-medium">
-            <p>© 2025 Green Earth. All Rights Reserved.</p>
-        </section>
+      <section
+        class="bg-[#14532D] py-[24px] text-white text-center text-[16px] font-medium"
+      >
+        <p>© 2025 Green Earth. All Rights Reserved.</p>
+      </section>
     </footer>
     <script src="./index.js"></script>
   </body>

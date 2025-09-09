@@ -7,7 +7,7 @@ const displayCategories=(data)=>{
     const categoriesContainer=document.getElementById("categories");
 // category_name
     data.forEach(element => {
-        console.log(element);
+        // console.log(element);
         const newElement=document.createElement('div');
         newElement.innerHTML=`
         <button onclick="loadCategoriesDetails(${element.id})" class="hover:bg-[#15803D] hover:text-white text-black text-[20px] hover:cursor-pointer font-light py-[8px] px-[10px] rounded-[4px] w-[100%] mb-[10px]">${element.category_name}</button>
@@ -50,7 +50,7 @@ const displayAllPlants=(data)=>{
         
         const newEl=document.createElement('div');
         newEl.innerHTML=`
-            <div class="bg-white p-[16px] w-[340px] rounded-[8px] shadow-sm">
+            <div onclick="loadModalDetails(${element.id})" class="bg-white p-[16px] w-[340px] rounded-[8px] shadow-sm">
                     <img class="w-[330px] h-[330px]" src="${element.image}" alt="">
                     <h2 class="text-[14px] font-semibold mt-[12px]">${element.category}</h2>
                     <p class="text-[12px] mt-[8px]">${element.description}</p>
@@ -90,10 +90,10 @@ const displayCategoriesDetails=(data)=>{
     const allPlantsContainer=document.getElementById('all-plants-container');
     allPlantsContainer.innerHTML='';
     data.forEach(element=>{
-        
+        // console.log(element);
         const newEl=document.createElement('div');
         newEl.innerHTML=`
-            <div class="bg-white p-[16px] w-[340px] rounded-[8px] shadow-sm">
+            <div onclick="loadModalDetails(${element.id})" class="bg-white  p-[16px] w-[340px] rounded-[8px] shadow-sm">
                     <img class="w-[330px] h-[330px]" src="${element.image}" alt="">
                     <h2 class="text-[14px] font-semibold mt-[12px]">${element.category}</h2>
                     <p class="text-[12px] mt-[8px]">${element.description}</p>
@@ -105,6 +105,44 @@ const displayCategoriesDetails=(data)=>{
         `;
         allPlantsContainer.appendChild(newEl);
     });
+}
+
+const loadModalDetails=(id)=>{
+    const url=`https://openapi.programming-hero.com/api/plant/${id}`;
+    fetch(url)
+    .then(res=>res.json())
+    .then(json=>displayModalDetails(json.plants));
+}
+
+// category
+// : 
+// "Fruit Tree"
+// description
+// : 
+// "A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green canopy offers shade, while its sweet fruits are rich in vitamins and minerals."
+// id
+// : 
+// 1
+// image
+// : 
+// "https://i.ibb.co.com/cSQdg7tf/mango-min.jpg"
+// name
+// : 
+// "Mango Tree"
+// price
+// : 
+// 500
+
+const displayModalDetails=(data)=>{
+    const container=document.getElementById('modal-box-container');
+    container.innerHTML=`
+    <h3 class="text-[25px] font-bold mb-[10px]">${data.name}</h3>
+                <img class='rounded-[10px] mb-[10px]' src="${data.image}" alt="">
+                <p class='mb-[5px]'><span class="font-bold text-[16px]">Category:</span> ${data.category}</p>
+                <p class='mb-[5px]'><span class="font-bold text-[16px]">Price:</span> ৳ ${data.price}</p>
+                <p class='mb-[5px]'><span class="font-bold text-[16px]">Description:</span> ${data.description}</p>
+    `;
+    document.getElementById('my_modal_1').showModal();
 }
 
 
