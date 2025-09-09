@@ -67,8 +67,8 @@ const displayAllPlants=(data)=>{
         
         const newEl=document.createElement('div');
         newEl.innerHTML=`
-            <div  class="bg-white p-[16px] w-[340px] rounded-[8px] shadow-sm">
-                    <img class="w-[330px] h-[330px]" src="${element.image}" alt="">
+            <div  class="bg-white p-[16px] w-[300px] rounded-[8px] shadow-sm">
+                    <img class="w-[330px] h-[290px]" src="${element.image}" alt="">
                     <h2 class="text-[14px] font-semibold mt-[12px]">${element.name}</h2>
                     <p class="text-[12px] mt-[8px]">${element.description}</p>
                     <div class="flex justify-between items-center mt-[8px]">
@@ -112,8 +112,8 @@ const displayCategoriesDetails=(data)=>{
         // console.log(element);
         const newEl=document.createElement('div');
         newEl.innerHTML=`
-            <div  class="bg-white  p-[16px] w-[340px] rounded-[8px] shadow-sm">
-                    <img class="w-[330px] h-[330px]" src="${element.image}" alt="">
+            <div  class="bg-white  p-[16px] w-[300px]  rounded-[8px] shadow-sm">
+                    <img class="w-[330px] h-[290px]" src="${element.image}" alt="">
                     <h2 class="text-[14px] font-semibold mt-[12px]">${element.name}</h2>
                     <p class="text-[12px] mt-[8px]">${element.description}</p>
                     <div class="flex justify-between items-center mt-[8px]">

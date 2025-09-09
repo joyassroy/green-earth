@@ -39,7 +39,7 @@
   <body class="font-inter">
     <header>
       <section
-        class="bg-[#15803D] flex items-center justify-between px-[135px] py-[24px]"
+        class="bg-[#15803D] flex max-sm:flex-col items-center justify-between px-[135px] max-sm:gap-[20px] py-[24px]"
       >
         <h2 class="text-white font-bold text-[24px]">Green Earth</h2>
         <div class="text-white space-x-[24px] font-medium text-[16px]">
@@ -53,7 +53,9 @@
       </section>
     </header>
     <main>
-      <section class="bg-[#CFF0DC] flex items-center justify-between">
+      <section
+        class="bg-[#CFF0DC] flex max-sm:flex-col-reverse gap-[10px] items-center justify-between"
+      >
         <img src="./assets/hero-leaf1.png" alt="" />
         <div class="text-center">
           <h1 class="font-bold text-[48px] mb-[8px]">
@@ -77,8 +79,10 @@
       <section
         class="bg-[#F0FDF4] flex flex-col items-center justify-center px-[135px] pt-[100px]"
       >
-        <h2 class="font-semibold text-[32px] mb-[40px] text-center">Choose Your Trees</h2>
-        <div class="flex justify-between gap-[30px]">
+        <h2 class="font-semibold text-[32px] mb-[40px] text-center">
+          Choose Your Trees
+        </h2>
+        <div class="flex max-sm:flex-col justify-between gap-[30px]">
           <div id="categories" class="">
             <h2 class="text-[20px] font-semibold text-center mb-[16px]">
               Categories
@@ -91,30 +95,38 @@
               </button>
             </div>
           </div>
-          
-            <dialog id="my_modal_1" class="modal">
-              <div class="modal-box">
-                <div id="modal-box-container">
-                <h3 class="text-[25px] font-bold">Neem Tree</h3>
-                <img src="" alt="">
-                <p><span class="font-bold text-[16px]">Category:</span> Shade Tree</p>
-                <p><span class="font-bold text-[16px]">Price:</span> ৳600</p>
-                <p><span class="font-bold text-[16px]">Description:</span> absdfdfdf</p>
-                </div>
 
-                
-                <div class="modal-action">
-                  <form method="dialog">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn">Close</button>
-                  </form>
-                </div>
+          <dialog id="my_modal_1" class="modal">
+            <div class="modal-box">
+              <div id="modal-box-container">
+                <h3 class="text-[25px] font-bold">Neem Tree</h3>
+                <img src="" alt="" />
+                <p>
+                  <span class="font-bold text-[16px]">Category:</span> Shade
+                  Tree
+                </p>
+                <p><span class="font-bold text-[16px]">Price:</span> ৳600</p>
+                <p>
+                  <span class="font-bold text-[16px]">Description:</span>
+                  absdfdfdf
+                </p>
               </div>
-            </dialog>
+
+              <div class="modal-action">
+                <form method="dialog">
+                  <!-- if there is a button in form, it will close the modal -->
+                  <button class="btn">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
           <section id="spinner" class="flex justify-center items-center hidden">
-<span class="loading loading-bars loading-xl"></span>
-      </section>
-          <div id="all-plants-container" class="grid grid-cols-3 gap-[30px]">
+            <span class="loading loading-bars loading-xl"></span>
+          </section>
+          <div
+            id="all-plants-container"
+            class="grid grid-cols-3 max-sm:grid-cols-1 gap-[30px]"
+          >
             <!-- <div class="bg-white p-[16px] rounded-[8px]">
                     <img height="186px" width="100%" src="" alt="">
                     <h2 class="text-[14px] font-semibold mt-[12px]">Mango Tree</h2>
@@ -125,25 +137,23 @@
                     <button type="button" class="btn btn-outline-primary mt-[12px] bg-[#15803D] text-white rounded-4xl w-[100%]">Add to Cart</button>
                 </div> -->
           </div>
-          <div class="p-[16px] bg-white rounded-[16px] w-[250px]">
+          <div class="p-[16px] bg-white rounded-[16px] w-[300px]">
             <h2 class="font-semibold text-[20px] mb-[8px]">Your Cart</h2>
 
             <div id="cart-container">
-                <!-- <div class="flex items-center justify-between bg-[#F0FDF4] p-[8px] rounded-[8px] mb-[8px]">
+              <!-- <div class="flex items-center justify-between bg-[#F0FDF4] p-[8px] rounded-[8px] mb-[8px]">
                 <div>
                     <h2>Mango Tree</h2>
                     <p>৳500</p>
                 </div>
                 <button class="hover:cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
                 </div> -->
-                
             </div>
-            <hr class="opacity-10">
-                <div class="flex items-center justify-between">
-                    <p class="font-medium text-[16px]">Total: </p>
-                    <p id="total-price" class="font-medium text-[16px]">৳0</p>
-                </div>
-
+            <hr class="opacity-10" />
+            <div class="flex items-center justify-between">
+              <p class="font-medium text-[16px]">Total:</p>
+              <p id="total-price" class="font-medium text-[16px]">৳0</p>
+            </div>
           </div>
         </div>
       </section>
@@ -151,7 +161,9 @@
         class="bg-[#F0FDF4] flex flex-col items-center pt-[100px] pb-[100px]"
       >
         <h2 class="font-semibold text-[32px] mb-[40px]">About the Campaign</h2>
-        <div class="flex items-center justify-center gap-[30px]">
+        <div
+          class="flex max-sm:flex-col items-center justify-center gap-[30px]"
+        >
           <img
             class="shadow-sm rounded-[10px]"
             src="./assets/about.png"
@@ -179,32 +191,38 @@
         <h2 class="font-semibold text-[32px] pt-[100px] pb-[40px]">
           Our Impact
         </h2>
-        <div class="flex items-center justify-between px-[135px]">
+        <div
+          class="flex max-sm:flex-col max-sm:gap-[20px] items-center justify-between px-[135px]"
+        >
           <div
-            class="bg-white rounded-[12px] py-[40px] px-[150px] hover:bg-green-300 shadow-lg"
+            class="bg-white rounded-[12px] py-[40px] text-center w-[400px] hover:bg-green-300 shadow-lg"
           >
             <h2 class="text-[#15803D] font-semibold text-[30px] mb-[12px]">
               500K+
             </h2>
-            <p class="font-normal text-[12px] opacity-80">Trees Planted</p>
+            <p class="font-normal text-[12px] max-sm:text-[12px] opacity-80">
+              Trees Planted
+            </p>
           </div>
           <div
-            class="bg-white rounded-[12px] py-[40px] px-[150px] hover:bg-green-300 shadow-lg"
+            class="bg-white rounded-[12px] py-[40px] text-center w-[400px] hover:bg-green-300 shadow-lg"
           >
             <h2 class="text-[#15803D] font-semibold text-[30px] mb-[12px]">
               120+
             </h2>
-            <p class="font-normal text-[12px] opacity-80">
+            <p class="font-normal text-[12px] max-sm:text-[12px] opacity-80">
               Communities Involved
             </p>
           </div>
           <div
-            class="bg-white rounded-[12px] py-[40px] px-[150px] hover:bg-green-300 shadow-lg"
+            class="bg-white rounded-[12px] py-[40px] text-center w-[400px] hover:bg-green-300 shadow-lg"
           >
             <h2 class="text-[#15803D] font-semibold text-[30px] mb-[12px]">
               30+
             </h2>
-            <p class="font-normal text-[12px] opacity-80">Countries Reached</p>
+            <p class="font-normal text-[12px] max-sm:text-[12px] opacity-80">
+              Countries Reached
+            </p>
           </div>
         </div>
       </section>
@@ -215,7 +233,7 @@
           Plant a Tree Today
         </h2>
         <div
-          class="bg-[#15803D] p-[40px] flex flex-col w-[600px] gap-[12px] rounded-[14px]"
+          class="bg-[#15803D] p-[40px] flex flex-col w-[600px] max-sm:w-[400px] gap-[12px] rounded-[14px]"
         >
           <input
             type="text"
