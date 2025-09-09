@@ -3,6 +3,7 @@ const loadCategories=()=>{
     .then(res=>res.json())
     .then(json=>displayCategories(json.categories));
 }
+let totalPrice=0;
 const displayCategories=(data)=>{
     const categoriesContainer=document.getElementById("categories");
 // category_name
@@ -50,14 +51,14 @@ const displayAllPlants=(data)=>{
         
         const newEl=document.createElement('div');
         newEl.innerHTML=`
-            <div onclick="loadModalDetails(${element.id})" class="bg-white p-[16px] w-[340px] rounded-[8px] shadow-sm">
+            <div  class="bg-white p-[16px] w-[340px] rounded-[8px] shadow-sm">
                     <img class="w-[330px] h-[330px]" src="${element.image}" alt="">
-                    <h2 class="text-[14px] font-semibold mt-[12px]">${element.category}</h2>
+                    <h2 class="text-[14px] font-semibold mt-[12px]">${element.name}</h2>
                     <p class="text-[12px] mt-[8px]">${element.description}</p>
                     <div class="flex justify-between items-center mt-[8px]">
-                        <button class="text-[12px] font-medium text-[#15803D] bg-[#DCFCE7] rounded-xl py-[4px] px-[12px]">${element.name}</button><button class="text-[14px] font-semibold">৳ ${element.price}</button>
+                        <button onclick="loadModalDetails(${element.id})" class="text-[12px] font-medium text-[#15803D] bg-[#DCFCE7] rounded-xl py-[4px] px-[12px]">${element.category}</button><button class="text-[14px] font-semibold">৳ ${element.price}</button>
                     </div>
-                    <button type="button" class="btn btn-outline-primary mt-[12px] bg-[#15803D] text-white rounded-4xl w-[100%] ">Add to Cart</button>
+                    <button onclick="loadCart(${element.id})" type="button" class="btn btn-outline-primary mt-[12px] bg-[#15803D] text-white rounded-4xl w-[100%] ">Add to Cart</button>
                 </div>
         `;
         allPlantsContainer.appendChild(newEl);
@@ -93,14 +94,14 @@ const displayCategoriesDetails=(data)=>{
         // console.log(element);
         const newEl=document.createElement('div');
         newEl.innerHTML=`
-            <div onclick="loadModalDetails(${element.id})" class="bg-white  p-[16px] w-[340px] rounded-[8px] shadow-sm">
+            <div  class="bg-white  p-[16px] w-[340px] rounded-[8px] shadow-sm">
                     <img class="w-[330px] h-[330px]" src="${element.image}" alt="">
-                    <h2 class="text-[14px] font-semibold mt-[12px]">${element.category}</h2>
+                    <h2 class="text-[14px] font-semibold mt-[12px]">${element.name}</h2>
                     <p class="text-[12px] mt-[8px]">${element.description}</p>
                     <div class="flex justify-between items-center mt-[8px]">
-                        <button class="text-[12px] font-medium text-[#15803D] bg-[#DCFCE7] rounded-xl py-[4px] px-[12px]">${element.name}</button><button class="text-[14px] font-semibold">৳ ${element.price}</button>
+                        <button onclick="loadModalDetails(${element.id})" class="text-[12px] font-medium text-[#15803D] bg-[#DCFCE7] rounded-xl py-[4px] px-[12px]">${element.category}</button><button class="text-[14px] font-semibold">৳ ${element.price}</button>
                     </div>
-                    <button type="button" class="btn btn-outline-primary mt-[12px] bg-[#15803D] text-white rounded-4xl w-[100%] ">Add to Cart</button>
+                    <button onclick="loadCart(${element.id})" type="button" class="btn btn-outline-primary mt-[12px] bg-[#15803D] text-white rounded-4xl w-[100%] ">Add to Cart</button>
                 </div>
         `;
         allPlantsContainer.appendChild(newEl);
@@ -145,4 +146,38 @@ const displayModalDetails=(data)=>{
     document.getElementById('my_modal_1').showModal();
 }
 
+const loadCart=(id)=>{
+    
+    const url=`https://openapi.programming-hero.com/api/plant/${id}`;
+    fetch(url)
+    .then(res=>res.json())
+    .then(json=>{
+
+    alert(`${json.plants.name} has been added to the cart.`);
+
+    const newEl=document.createElement('div');
+    totalPrice+=json.plants.price;
+    document.getElementById('total-price').innerText=totalPrice;
+    newEl.innerHTML=`
+        <div id='cart-box-${id}' class="flex items-center justify-between bg-[#F0FDF4] p-[8px] rounded-[8px] mb-[8px]">
+                <div>
+                    <h2>${json.plants.name}</h2>
+                    <p>৳ ${json.plants.price}</p>
+                </div>
+                <button onclick='priceCross(${json.plants.price},${id})' class="hover:cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+    `;
+    const container=document.getElementById('cart-container');
+    container.appendChild(newEl);
+    });
+
+}
+const priceCross=(price,id)=>{
+    totalPrice-=price;
+     const val=document.getElementById(`cart-box-${id}`);
+    //  val.innerHTML=``;
+    val.remove();
+    
+    document.getElementById('total-price').innerText=totalPrice;
+}
 
