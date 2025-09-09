@@ -30,3 +30,8 @@ Ans:
     
 Ans: 
 Template literals are an enhanced form of string literals, enclosed by backticks (`) instead of single or double quotes. 
+
+They are different from traditional string concatenation in two main ways:
+Embedded Expressions: They allow for embedding variables and expressions directly within the string using the ${expression} syntax.
+
+Multi-line Strings: They allow strings to span multiple lines without needing concatenation or escape characters.
